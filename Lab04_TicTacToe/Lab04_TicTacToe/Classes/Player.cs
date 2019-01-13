@@ -34,8 +34,8 @@ namespace Lab04_TicTacToe.Classes
 				Int32.TryParse(Console.ReadLine(), out int position);
 				desiredCoordinate = PositionForNumber(position);
 			}
-			return desiredCoordinate;
-
+            Console.Clear();
+            return desiredCoordinate;
 		}
 
         /// <summary>
