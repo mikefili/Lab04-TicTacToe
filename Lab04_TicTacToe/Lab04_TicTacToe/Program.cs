@@ -7,7 +7,11 @@ namespace Lab04_TicTacToe
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello shitty game");
+            Console.WriteLine(" Let's play some...");
+            Console.WriteLine();
+            Console.WriteLine("T I C");
+            Console.WriteLine("        T A C");
+            Console.WriteLine("                T O E");
             Player first  = new Player();
             Player p2 = new Player();
             Game game = new Game (p2, first);
