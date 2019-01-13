@@ -55,6 +55,7 @@ namespace Lab04_TicTacToe.Classes
 		{
 			IsTurn = true;
 
+            Console.WriteLine();
 			Console.WriteLine($"{Name} it is your turn");
 
 			Position position = GetPosition(board);

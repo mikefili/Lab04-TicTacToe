@@ -45,9 +45,16 @@ namespace Lab04_TicTacToe.Classes
                 Board.DisplayBoard();
                 NextPlayer().TakeTurn(Board);
                 winner = CheckForWinner(Board);
+                turns++;
                 SwitchPlayer();
                 }
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+            if (turns == 9)
+            {
+                Console.WriteLine("You drew!");
+            }
+            Console.ReadLine();
+            return null;
+            //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
             /*
              * Complete this method by constructing the logic for the actual playing of Tic Ta Toe. 
@@ -63,8 +70,7 @@ namespace Lab04_TicTacToe.Classes
 
             Use any and all pr-existing methods in this program to help construct the method logic. 
              */
-             return null;
-		}
+        }
 
 
 		/// <summary>
@@ -102,9 +108,17 @@ namespace Lab04_TicTacToe.Classes
                 // TODO:  Determine a winner has been reached. 
                 // return true if a winner has been reached. 
 
-                if ()
+                if (a == "X" && b == "X" && c == "X")
                 {
-
+                    Console.WriteLine("Congrats, Player One!");
+                    Console.Write("You win!");
+                    return true;
+                }
+                else if (a == "O" && b == "O" && c == "O")
+                {
+                    Console.WriteLine("Congrats, Player Two!");
+                    Console.Write("You win!");
+                    return true;
                 }
 			}
 
