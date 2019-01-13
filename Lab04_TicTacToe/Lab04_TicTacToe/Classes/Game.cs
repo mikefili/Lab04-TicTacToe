@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	class Game
+	public class Game
 	{
 		public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
@@ -30,11 +30,27 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>Winner</returns>
 		public Player Play()
 		{
+            PlayerOne.Name = "Player 1";
+            PlayerTwo.Name = "Player 2";
+            PlayerOne.Marker = "X";
+            PlayerTwo.Marker = "O";
+            PlayerOne.IsTurn = true;
+            PlayerTwo.IsTurn = false;
 
+            int turns = 0;
+            bool winner = false;
+            while (winner == false && turns < 9)
+                {
+                Console.WriteLine();
+                Board.DisplayBoard();
+                NextPlayer().TakeTurn(Board);
+                winner = CheckForWinner(Board);
+                SwitchPlayer();
+                }
 			//TODO: Complete this method and utilize the rest of the class structure to play the game.
 
             /*
-             * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
+             * Complete this method by constructing the logic for the actual playing of Tic Ta Toe. 
              * 
              * A few things to get you started:
             1. A turn consists of a player picking a position on the board with their designated marker. 
@@ -45,8 +61,9 @@ namespace Lab04_TicTacToe.Classes
                 Be sure to keep track of the number of turns that have been taken to determine if a draw is required
                 and make sure that the game continues while there are unmarked spots on the board. 
 
-            Use any and all pre-existing methods in this program to help construct the method logic. 
+            Use any and all pr-existing methods in this program to help construct the method logic. 
              */
+             return null;
 		}
 
 
@@ -82,9 +99,13 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached. 
-			
+                // TODO:  Determine a winner has been reached. 
+                // return true if a winner has been reached. 
+
+                if ()
+                {
+
+                }
 			}
 
 			return false;
