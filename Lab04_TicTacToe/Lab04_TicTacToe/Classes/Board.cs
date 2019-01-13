@@ -7,7 +7,7 @@ namespace Lab04_TicTacToe.Classes
     public class Board
     {
         /// <summary>
-        /// Tic Ta Toe Game board states
+        /// Tic Tac Toe Game board states
         /// </summary>
         public string[,] GameBoard = new string[,]
         {
@@ -16,7 +16,9 @@ namespace Lab04_TicTacToe.Classes
             {"7", "8", "9"},
         };
 
-
+        /// <summary>
+        /// Layout Tic Tac Toe Game board
+        /// </summary>
         public void DisplayBoard()
         {
             Console.WriteLine("---------------------");

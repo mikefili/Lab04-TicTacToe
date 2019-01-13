@@ -6,6 +6,9 @@ namespace Lab04_TicTacToe.Classes
 {
     public class Player
     {
+        /// <summary>
+        /// P1 is PlayerOne and P2 is PlayerTwo
+        /// </summary>
 		public string Name { get; set; }
 		/// <summary>
 		/// P1 is X and P2 will be O
@@ -17,7 +20,11 @@ namespace Lab04_TicTacToe.Classes
 		/// </summary>
 		public bool IsTurn { get; set; }
 
-
+        /// <summary>
+        /// Intake player's position selection
+        /// </summary>
+        /// <param name="board">current state of the board</param>
+        /// <returns></returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -27,11 +34,15 @@ namespace Lab04_TicTacToe.Classes
 				Int32.TryParse(Console.ReadLine(), out int position);
 				desiredCoordinate = PositionForNumber(position);
 			}
-			return desiredCoordinate;
-
+            Console.Clear();
+            return desiredCoordinate;
 		}
 
-
+        /// <summary>
+        /// Establish board positions
+        /// </summary>
+        /// <param name="position">current positions in matrix</param>
+        /// <returns></returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
@@ -50,8 +61,11 @@ namespace Lab04_TicTacToe.Classes
 			}
 		}
 
-	
-		public void TakeTurn(Board board)
+        /// <summary>
+        /// prompt player to take turn & place marker
+        /// </summary>
+        /// <param name="board">current state of the board</param>
+        public void TakeTurn(Board board)
 		{
 			IsTurn = true;
 
@@ -67,7 +81,9 @@ namespace Lab04_TicTacToe.Classes
 			else
 			{
 				Console.WriteLine("This space is already occupied");
-			}
+                board.DisplayBoard();
+                TakeTurn(board);
+            }
 		}
 	}
 }
