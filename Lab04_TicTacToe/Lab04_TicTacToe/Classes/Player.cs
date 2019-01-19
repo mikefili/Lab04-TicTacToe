@@ -11,20 +11,20 @@ namespace Lab04_TicTacToe.Classes
         /// </summary>
 		public string Name { get; set; }
 		/// <summary>
-		/// P1 is X and P2 will be O
+		/// P1 is X and P2 is O
 		/// </summary>
 		public string Marker { get; set; }
 
 		/// <summary>
-		/// Flag to determine if it is the user's turn
+		/// Turn marker
 		/// </summary>
 		public bool IsTurn { get; set; }
 
         /// <summary>
-        /// Intake player's position selection
+        /// Get player's move
         /// </summary>
-        /// <param name="board">current state of the board</param>
-        /// <returns></returns>
+        /// <param name="board">current game board</param>
+        /// <returns>player's move</returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -39,10 +39,10 @@ namespace Lab04_TicTacToe.Classes
 		}
 
         /// <summary>
-        /// Establish board positions
+        /// Initialize game board positions
         /// </summary>
-        /// <param name="position">current positions in matrix</param>
-        /// <returns></returns>
+        /// <param name="position">current positions on game board/param>
+        /// <returns>board positions</returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
@@ -64,13 +64,13 @@ namespace Lab04_TicTacToe.Classes
         /// <summary>
         /// prompt player to take turn & place marker
         /// </summary>
-        /// <param name="board">current state of the board</param>
+        /// <param name="board">current game board</param>
         public void TakeTurn(Board board)
 		{
 			IsTurn = true;
 
             Console.WriteLine();
-			Console.WriteLine($"{Name} it is your turn");
+			Console.WriteLine($"{Name}, your turn!");
 
 			Position position = GetPosition(board);
 
@@ -80,7 +80,7 @@ namespace Lab04_TicTacToe.Classes
 			}
 			else
 			{
-				Console.WriteLine("This space is already occupied");
+				Console.WriteLine("This position is taken!");
                 board.DisplayBoard();
                 TakeTurn(board);
             }
