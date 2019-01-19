@@ -25,7 +25,7 @@ namespace Lab04_TicTacToe.Classes
 		}
 
 		/// <summary>
-		/// Activate the Play of the game
+		/// Begin game
 		/// </summary>
 		/// <returns>Winner</returns>
 		public Player Play()
@@ -61,7 +61,7 @@ namespace Lab04_TicTacToe.Classes
 		/// Check if winner exists
 		/// </summary>
 		/// <param name="board">current state of the board</param>
-		/// <returns>if winner exists</returns>
+		/// <returns>bool</returns>
 		public bool CheckForWinner(Board board)
 		{
 			int[][] winners = new int[][]
