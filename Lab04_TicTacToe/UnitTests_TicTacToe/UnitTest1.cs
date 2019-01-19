@@ -18,6 +18,21 @@ namespace UnitTests_TicTacToe
         }
 
         [Fact]
+        public void CheckForWinnerCanReturnTrue()
+        {
+            Player testOne = new Player();
+            Player testTwo = new Player();
+            Game testGame = new Game(testOne, testTwo);
+            testGame.Board.GameBoard = new string[,]
+            {
+                {"X", "X", "X"},
+                {"X", "X", "X"},
+                {"X", "X", "X"},
+            };
+            Assert.True(testGame.CheckForWinner(testGame.Board));
+        }
+
+        [Fact]
         public void CanSwitchToPlayerOne()
         {
             Player testOne = new Player();
@@ -79,6 +94,12 @@ namespace UnitTests_TicTacToe
             Assert.Equal(marker.Column, input.Column);
         }
 
-
+        [Fact]
+        public void CanPlayGame()
+        {
+            Player testOne = new Player();
+            Player testTwo = new Player();
+            Game testGame = new Game(testOne, testTwo);
+        }
     }
 }
