@@ -18,7 +18,7 @@ namespace Lab04_TicTacToe.Classes
 		/// <summary>
 		/// Turn marker
 		/// </summary>
-		public bool IsTurn { get; set; }
+		public bool Turn { get; set; }
 
         /// <summary>
         /// Get player's move
@@ -67,7 +67,7 @@ namespace Lab04_TicTacToe.Classes
         /// <param name="board">current game board</param>
         public void TakeTurn(Board board)
 		{
-			IsTurn = true;
+			Turn = true;
 
             Console.WriteLine();
 			Console.WriteLine($"{Name}, your turn!");

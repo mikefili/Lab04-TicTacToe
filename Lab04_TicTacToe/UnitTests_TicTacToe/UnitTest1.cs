@@ -30,6 +30,17 @@ namespace UnitTests_TicTacToe
             Assert.True(testTwo.IsTurn);
         }
 
+        [Fact]
+        public void CanSwitchToPlayerTwo()
+        {
+            Player testOne = new Player();
+            Player testTwo = new Player();
+            Game testGame = new Game(testOne, testTwo);
+            testOne.IsTurn = false;
+            testTwo.IsTurn = true;
+            testGame.SwitchPlayer();
 
+            Assert.False(testTwo.IsTurn);
+        }
     }
 }
