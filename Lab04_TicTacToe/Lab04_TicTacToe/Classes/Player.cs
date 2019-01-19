@@ -6,25 +6,15 @@ namespace Lab04_TicTacToe.Classes
 {
     public class Player
     {
-        /// <summary>
-        /// P1 is PlayerOne and P2 is PlayerTwo
-        /// </summary>
 		public string Name { get; set; }
-		/// <summary>
-		/// P1 is X and P2 will be O
-		/// </summary>
 		public string Marker { get; set; }
-
-		/// <summary>
-		/// Flag to determine if it is the user's turn
-		/// </summary>
-		public bool IsTurn { get; set; }
+		public bool Turn { get; set; }
 
         /// <summary>
-        /// Intake player's position selection
+        /// Get player's move
         /// </summary>
-        /// <param name="board">current state of the board</param>
-        /// <returns></returns>
+        /// <param name="board">current game board</param>
+        /// <returns>player's move</returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -32,18 +22,18 @@ namespace Lab04_TicTacToe.Classes
 			{
 				Console.WriteLine("Please select a location");
 				Int32.TryParse(Console.ReadLine(), out int position);
-				desiredCoordinate = PositionForNumber(position);
+				desiredCoordinate = NumberPositions(position);
 			}
             Console.Clear();
             return desiredCoordinate;
 		}
 
         /// <summary>
-        /// Establish board positions
+        /// Initialize game board positions
         /// </summary>
-        /// <param name="position">current positions in matrix</param>
-        /// <returns></returns>
-		public static Position PositionForNumber(int position)
+        /// <param name="position">current positions on game board/param>
+        /// <returns>board positions</returns>
+		public static Position NumberPositions(int position)
 		{
 			switch (position)
 			{
@@ -56,7 +46,6 @@ namespace Lab04_TicTacToe.Classes
 				case 7: return new Position(2, 0); // Bottom Left
 				case 8: return new Position(2, 1); // Bottom Middle 
 				case 9: return new Position(2, 2); // Bottom Right
-
 				default: return null;
 			}
 		}
@@ -64,14 +53,12 @@ namespace Lab04_TicTacToe.Classes
         /// <summary>
         /// prompt player to take turn & place marker
         /// </summary>
-        /// <param name="board">current state of the board</param>
+        /// <param name="board">current game board</param>
         public void TakeTurn(Board board)
 		{
-			IsTurn = true;
-
+			Turn = true;
             Console.WriteLine();
-			Console.WriteLine($"{Name} it is your turn");
-
+			Console.WriteLine($"{Name}, your turn!");
 			Position position = GetPosition(board);
 
 			if (Int32.TryParse(board.GameBoard[position.Row, position.Column], out int _))
@@ -80,7 +67,7 @@ namespace Lab04_TicTacToe.Classes
 			}
 			else
 			{
-				Console.WriteLine("This space is already occupied");
+				Console.WriteLine("This position is taken!");
                 board.DisplayBoard();
                 TakeTurn(board);
             }

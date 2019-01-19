@@ -11,7 +11,6 @@ namespace Lab04_TicTacToe.Classes
 		public Player Winner { get; set; }
 		public Board Board { get; set; }
 
-
 		/// <summary>
 		/// Require 2 players and a board to start a game. 
 		/// </summary>
@@ -25,7 +24,7 @@ namespace Lab04_TicTacToe.Classes
 		}
 
 		/// <summary>
-		/// Activate the Play of the game
+		/// Begin game
 		/// </summary>
 		/// <returns>Winner</returns>
 		public Player Play()
@@ -34,8 +33,8 @@ namespace Lab04_TicTacToe.Classes
             PlayerTwo.Name = "Player 2";
             PlayerOne.Marker = "X";
             PlayerTwo.Marker = "O";
-            PlayerOne.IsTurn = true;
-            PlayerTwo.IsTurn = false;
+            PlayerOne.Turn = true;
+            PlayerTwo.Turn = false;
 
             int turns = 0;
             bool winner = false;
@@ -56,12 +55,11 @@ namespace Lab04_TicTacToe.Classes
             return null;
         }
 
-
 		/// <summary>
-		/// Check if winner exists
+		/// Check if there is a winner
 		/// </summary>
-		/// <param name="board">current state of the board</param>
-		/// <returns>if winner exists</returns>
+		/// <param name="board">current game board</param>
+		/// <returns>bool</returns>
 		public bool CheckForWinner(Board board)
 		{
 			int[][] winners = new int[][]
@@ -69,28 +67,22 @@ namespace Lab04_TicTacToe.Classes
 				new[] {1,2,3},
 				new[] {4,5,6},
 				new[] {7,8,9},
-
 				new[] {1,4,7},
 				new[] {2,5,8},
 				new[] {3,6,9},
-
 				new[] {1,5,9},
 				new[] {3,5,7}
 			};
 
-			// Given all the winning conditions, Determine the winning logic. 
+			// Confirm winner found & congratulate the winner
 			for (int i = 0; i < winners.Length; i++)
 			{
-				Position p1 = Player.PositionForNumber(winners[i][0]);
-				Position p2 = Player.PositionForNumber(winners[i][1]);
-				Position p3 = Player.PositionForNumber(winners[i][2]);
-
+				Position p1 = Player.NumberPositions(winners[i][0]);
+				Position p2 = Player.NumberPositions(winners[i][1]);
+				Position p3 = Player.NumberPositions(winners[i][2]);
 				string a = Board.GameBoard[p1.Row, p1.Column];
 				string b = Board.GameBoard[p2.Row, p2.Column];
-				string c = Board.GameBoard[p3.Row, p3.Column];
-
-                // TODO:  Determine a winner has been reached. 
-                // return true if a winner has been reached. 
+				string c = Board.GameBoard[p3.Row, p3.Column]; 
 
                 if (a == "X" && b == "X" && c == "X")
                 {
@@ -105,37 +97,32 @@ namespace Lab04_TicTacToe.Classes
                     return true;
                 }
 			}
-
 			return false;
 		}
 
-
 		/// <summary>
-		/// Determine next player
+		/// Determine who goes next
 		/// </summary>
 		/// <returns>next player</returns>
 		public Player NextPlayer()
 		{
-			return (PlayerOne.IsTurn) ? PlayerOne : PlayerTwo;
+			return (PlayerOne.Turn) ? PlayerOne : PlayerTwo;
 		}
 
 		/// <summary>
-		/// End one players turn and activate the other
+		/// Switch to next player
 		/// </summary>
 		public void SwitchPlayer()
 		{
-			if (PlayerOne.IsTurn)
+			if (PlayerOne.Turn)
 			{
-              
-				PlayerOne.IsTurn = false;
-
-              
-				PlayerTwo.IsTurn = true;
+				PlayerOne.Turn = false;
+				PlayerTwo.Turn = true;
 			}
 			else
 			{
-				PlayerOne.IsTurn = true;
-				PlayerTwo.IsTurn = false;
+				PlayerOne.Turn = true;
+				PlayerTwo.Turn = false;
 			}
 		}
 
