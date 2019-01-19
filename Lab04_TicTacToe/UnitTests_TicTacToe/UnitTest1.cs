@@ -7,6 +7,21 @@ namespace UnitTests_TicTacToe
     public class UnitTest1
     {
         [Fact]
+        static void CanCreateGameBoard()
+        {
+            Player testOne = new Player();
+            Player testTwo = new Player();
+            Game game = new Game(testOne, testTwo);
+            string[,] expected = new string[,]
+            {
+                {"1", "2", "3"},
+                {"4", "5", "6"},
+                {"7", "8", "9"},
+            };
+            Assert.Equal(expected, game.Board.GameBoard);
+        }
+
+        [Fact]
         public void CheckForWinnerCanReturnFalse()
         {
             Player testOne = new Player();

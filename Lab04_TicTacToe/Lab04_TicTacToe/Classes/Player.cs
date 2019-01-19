@@ -6,18 +6,8 @@ namespace Lab04_TicTacToe.Classes
 {
     public class Player
     {
-        /// <summary>
-        /// P1 is PlayerOne and P2 is PlayerTwo
-        /// </summary>
 		public string Name { get; set; }
-		/// <summary>
-		/// P1 is X and P2 is O
-		/// </summary>
 		public string Marker { get; set; }
-
-		/// <summary>
-		/// Turn marker
-		/// </summary>
 		public bool Turn { get; set; }
 
         /// <summary>
@@ -56,7 +46,6 @@ namespace Lab04_TicTacToe.Classes
 				case 7: return new Position(2, 0); // Bottom Left
 				case 8: return new Position(2, 1); // Bottom Middle 
 				case 9: return new Position(2, 2); // Bottom Right
-
 				default: return null;
 			}
 		}
@@ -68,10 +57,8 @@ namespace Lab04_TicTacToe.Classes
         public void TakeTurn(Board board)
 		{
 			Turn = true;
-
             Console.WriteLine();
 			Console.WriteLine($"{Name}, your turn!");
-
 			Position position = GetPosition(board);
 
 			if (Int32.TryParse(board.GameBoard[position.Row, position.Column], out int _))

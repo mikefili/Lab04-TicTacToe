@@ -11,7 +11,6 @@ namespace Lab04_TicTacToe.Classes
 		public Player Winner { get; set; }
 		public Board Board { get; set; }
 
-
 		/// <summary>
 		/// Require 2 players and a board to start a game. 
 		/// </summary>
@@ -56,7 +55,6 @@ namespace Lab04_TicTacToe.Classes
             return null;
         }
 
-
 		/// <summary>
 		/// Check if there is a winner
 		/// </summary>
@@ -69,11 +67,9 @@ namespace Lab04_TicTacToe.Classes
 				new[] {1,2,3},
 				new[] {4,5,6},
 				new[] {7,8,9},
-
 				new[] {1,4,7},
 				new[] {2,5,8},
 				new[] {3,6,9},
-
 				new[] {1,5,9},
 				new[] {3,5,7}
 			};
@@ -101,10 +97,8 @@ namespace Lab04_TicTacToe.Classes
                     return true;
                 }
 			}
-
 			return false;
 		}
-
 
 		/// <summary>
 		/// Determine who goes next
