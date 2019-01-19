@@ -56,9 +56,29 @@ namespace UnitTests_TicTacToe
         public void CanPlaceMarkerOnCorrectRow(string userInput, int[] expected)
         {
             Position marker = new Position(expected[0], expected[1]);
-            Position response = Player.NumberPositions(Convert.ToInt32(userInput));
+            Position input = Player.NumberPositions(Convert.ToInt32(userInput));
 
-            Assert.Equal(marker.Row, response.Row);
+            Assert.Equal(marker.Row, input.Row);
         }
+
+        [Theory]
+        [InlineData("1", new[] { 0, 0 })]
+        [InlineData("2", new[] { 0, 1 })]
+        [InlineData("3", new[] { 0, 2 })]
+        [InlineData("4", new[] { 1, 0 })]
+        [InlineData("5", new[] { 1, 1 })]
+        [InlineData("6", new[] { 1, 2 })]
+        [InlineData("7", new[] { 2, 0 })]
+        [InlineData("8", new[] { 2, 1 })]
+        [InlineData("9", new[] { 2, 2 })]
+        public void CanPlaceMarkerOnCorrectColumn(string userInput, int[] expected)
+        {
+            Position marker = new Position(expected[0], expected[1]);
+            Position input = Player.NumberPositions(Convert.ToInt32(userInput));
+
+            Assert.Equal(marker.Column, input.Column);
+        }
+
+
     }
 }
