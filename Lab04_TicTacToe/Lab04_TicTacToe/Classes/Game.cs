@@ -81,9 +81,9 @@ namespace Lab04_TicTacToe.Classes
 			// Confirm winner found & congratulate the winner
 			for (int i = 0; i < winners.Length; i++)
 			{
-				Position p1 = Player.PositionForNumber(winners[i][0]);
-				Position p2 = Player.PositionForNumber(winners[i][1]);
-				Position p3 = Player.PositionForNumber(winners[i][2]);
+				Position p1 = Player.NumberPositions(winners[i][0]);
+				Position p2 = Player.NumberPositions(winners[i][1]);
+				Position p3 = Player.NumberPositions(winners[i][2]);
 				string a = Board.GameBoard[p1.Row, p1.Column];
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column]; 

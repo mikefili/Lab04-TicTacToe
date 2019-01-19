@@ -32,7 +32,7 @@ namespace Lab04_TicTacToe.Classes
 			{
 				Console.WriteLine("Please select a location");
 				Int32.TryParse(Console.ReadLine(), out int position);
-				desiredCoordinate = PositionForNumber(position);
+				desiredCoordinate = NumberPositions(position);
 			}
             Console.Clear();
             return desiredCoordinate;
@@ -43,7 +43,7 @@ namespace Lab04_TicTacToe.Classes
         /// </summary>
         /// <param name="position">current positions on game board/param>
         /// <returns>board positions</returns>
-		public static Position PositionForNumber(int position)
+		public static Position NumberPositions(int position)
 		{
 			switch (position)
 			{
